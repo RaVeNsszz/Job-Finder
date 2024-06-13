@@ -20,15 +20,15 @@ app.use(bodyParser.urlencoded({extends : false}));
 
 //handle bars
 app.set('views', path.join(__dirname,'views'));//arquivos staticos
-app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));//leyout principal da aplicação, o que se repete
-app.set('view engine','handlebars');//Framework ultilizado para redenrizar as views
+app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));//layout principal da aplicação, o que se repete
+app.set('view engine','handlebars');//Framework utilizado para renderizar as views
 
 // static folder
 app.use(express.static(path.join(__dirname,'public'))); //setei qual a pasta de arquivos estaticos
 
-//db conncetion
+//db connection
 db
-    .authenticate()//conecção, retorna uma then
+    .authenticate()//conexão, retorna uma then
     .then(()=>{
         console.log('Conectou ao banco com sucesso')
     })
